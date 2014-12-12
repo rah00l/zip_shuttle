@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  route_id: 1
+  pickup_start_time: 2014-12-12 12:11:57
+
+two:
+  route_id: 1
+  pickup_start_time: 2014-12-12 12:11:57
