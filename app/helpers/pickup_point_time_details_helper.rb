@@ -1,0 +1,2 @@
+module PickupPointTimeDetailsHelper
+end

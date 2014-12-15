@@ -13,6 +13,9 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  resources :pickup_point_time_details #do 
+    get "get_route_start_time" , :to => "pickup_point_time_details#get_route_start_time"
+  # end
 
   # Example resource route with options:
   #   resources :products do

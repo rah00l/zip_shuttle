@@ -1,0 +1,23 @@
+<h1>Listing pickup_point_time_details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pickup_point_time_details.each do |pickup_point_time_detail| %>
+      <tr>
+        <td><%= link_to 'Show', pickup_point_time_detail %></td>
+        <td><%= link_to 'Edit', edit_pickup_point_time_detail_path(pickup_point_time_detail) %></td>
+        <td><%= link_to 'Destroy', pickup_point_time_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pickup point time detail', new_pickup_point_time_detail_path %>
