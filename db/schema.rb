@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141212064157) do
+ActiveRecord::Schema.define(version: 20141213012012) do
+
+  create_table "drop_point_time_details", force: true do |t|
+    t.integer  "route_id"
+    t.integer  "location_id"
+    t.integer  "drop_route_start_time_id"
+    t.time     "drop_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "drop_route_start_times", force: true do |t|
+    t.integer  "route_id"
+    t.time     "drop_start_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "locations", force: true do |t|
     t.integer  "route_id"
@@ -20,6 +36,15 @@ ActiveRecord::Schema.define(version: 20141212064157) do
     t.string   "longitude"
     t.string   "route_type"
     t.boolean  "industrial_stop"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pickup_point_time_details", force: true do |t|
+    t.integer  "route_id"
+    t.integer  "location_id"
+    t.integer  "pickup_route_start_time_id"
+    t.time     "pickup_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

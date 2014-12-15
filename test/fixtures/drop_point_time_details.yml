@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  route_id: 1
+  location_id: 1
+  drop_route_start_time_id: 1
+  drop_time: 2014-12-13 06:50:12
+
+two:
+  route_id: 1
+  location_id: 1
+  drop_route_start_time_id: 1
+  drop_time: 2014-12-13 06:50:12
