@@ -28,6 +28,8 @@ gem 'spring',        group: :development
 
 gem "therubyracer", "~> 0.10.2"
 
+gem 'debugger', group: [:development, :test]
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

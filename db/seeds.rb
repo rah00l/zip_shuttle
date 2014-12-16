@@ -11,6 +11,9 @@ Route.destroy_all
 
 ["Aundh via Sanghvi Phata","Kothrud via Sus Road","Nigadi via Chinchwad Gaon","Pimple Gurav/Saudagar via Jagtap Diary"].each { |r| Route.create(name: r )}
 
+
+PickupRouteStartTime.destroy_all
+
 ["7:00", "8:00" , "8:30","9:00", "9:30","10:00"].each { |a| PickupRouteStartTime.create(pickup_start_time: a) }
 
 ["17:10","17:45","18:30","19:00","20.05","20:35"].each { |a| DropRouteStartTime.create(drop_start_time: a) }

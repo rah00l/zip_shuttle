@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :route_name %><br />
-    <%= f.collection_select :route_id, Route.all, :id, :name %>
+    <%= f.collection_select :route_id, Route.all, :id, :name, prompt: true %>
   </div>
 
 <br/>
@@ -21,7 +21,7 @@
   <div class="field">
   <%= f.label :route_start_time %>
   <div id="route_start_time_container">
-    <%= render "route_start_time"  %>
+    <%= render "route_start_time", @route if @route.present?  %>
   </div>
   </div>
 <br/>
