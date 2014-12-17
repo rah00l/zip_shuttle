@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+
+# route_types:
+#   short: "Short"
+#   medium: "Medium"
+#   long: "Long"

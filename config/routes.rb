@@ -23,14 +23,11 @@ Rails.application.routes.draw do
   end
 
 
-resources :pickup_route_start_times
+  resources :pickup_route_start_times
+
+  resources :locations
 
   
-
-  
-
-    
-
     # match ":pickup_point_time_details/:get_route_start_time"
   # end
 

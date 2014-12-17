@@ -10,6 +10,8 @@
   <tbody>
     <% @pickup_route_start_times.each do |pickup_route_start_time| %>
       <tr>
+        <td><%= pickup_route_start_time.route.name %></td>
+        <td><%= pickup_route_start_time.pickup_start_time %></td>
         <td><%= link_to 'Show', pickup_route_start_time %></td>
         <td><%= link_to 'Edit', edit_pickup_route_start_time_path(pickup_route_start_time) %></td>
         <td><%= link_to 'Destroy', pickup_route_start_time, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -62,10 +62,17 @@ class PickupPointTimeDetailsController < ApplicationController
   end
 
   def get_route_start_time
-    # puts params.inspect
      @route = Route.find(params[:route_id])
     # @route = Route.joins(:pickup_route_start_times).where(params[:route_id])
+    respond_to do |format|
+      format.js
+    end
+  end
 
+  def get_location
+     route = Route.find(params[:route_id])
+     @location = route.locations
+    # @route = Route.joins(:pickup_route_start_times).where(params[:route_id])
     respond_to do |format|
       format.js
     end
