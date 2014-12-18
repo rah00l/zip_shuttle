@@ -21,10 +21,24 @@
   <div class="field">
   <%= f.label :route_start_time %>
   <div id="route_start_time_container">
-    <%= render "route_start_time", @route if @route.present?  %>
+    <%= render "route_start_time", pickup_route_start_times: @pickup_route_start_times if @pickup_route_start_times.present?  %>
   </div>
   </div>
 <br/>
+
+  <div class="field">
+  <%= f.label :pickup_point %>
+  <div id="location_container">
+    <%= render "location", locations: @locations if @locations.present?  %>
+  </div>
+  </div>
+
+  <div class="pickup_time_field" style="display:none;">
+    <%= f.label :pickup_time %><br />
+    <%= f.time_field :pickup_time %>
+  </div>
+
+  <br/>
   <!-- <div class="field">
   <%#= address.label :state %>
   <div id="state_id_container">

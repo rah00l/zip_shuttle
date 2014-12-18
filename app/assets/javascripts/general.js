@@ -26,10 +26,13 @@ $(document).ready(function(){
               url: 'get_location',
               data: 'route_id='+routeId,
               success: function(msg) {
-                // $("#pickup_point_time_detail_pickup_route_start_time_id").focus();
+                 $(".pickup_time_field").show();
+                 $(".pickup_time_field").focus();
               }
         });
 
     }
     return false;
 });
+
+  });

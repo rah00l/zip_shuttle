@@ -1,2 +1,5 @@
- <% pickup_route_start_times = route.pickup_route_start_times %>
+ <%# pickup_route_start_times = route.pickup_route_start_times %>
+ 
+ <%#= raise pickup_route_start_times.inspect %>
+
 <%= collection_select "pickup_point_time_detail",:pickup_route_start_time_id, pickup_route_start_times, :id, :pickup_start_time, prompt: true %>

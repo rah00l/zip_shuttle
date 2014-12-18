@@ -19,6 +19,7 @@ Rails.application.routes.draw do
      # get 'pickup_point_time_detail/:id' => 'pickup_point_time_details#get_route_start_time'
       collection do
         get 'get_route_start_time'
+        get 'get_location'
       end
   end
 

@@ -62,17 +62,22 @@ class PickupPointTimeDetailsController < ApplicationController
   end
 
   def get_route_start_time
-     @route = Route.find(params[:route_id])
-    # @route = Route.joins(:pickup_route_start_times).where(params[:route_id])
+     # @route = Route.find(params[:route_id])
+     #@pickup_route_start_times = Route.joins(:pickup_route_start_times).where(params[:route_id])
+      @pickup_route_start_times = Route.find(params[:route_id]).pickup_route_start_times
+      # @route = Route.find(params[:route_id])
     respond_to do |format|
       format.js
     end
   end
 
   def get_location
-     route = Route.find(params[:route_id])
-     @location = route.locations
+     # @route = Route.find(params[:route_id])
+     # @location = route.locations
     # @route = Route.joins(:pickup_route_start_times).where(params[:route_id])
+    # @locations = Route.joins(:locations).where(params[:route_id])
+    # @locations = Route.find(params[:route_id]).locations
+    @locations = Route.find(params[:route_id]).locations
     respond_to do |format|
       format.js
     end
@@ -86,6 +91,7 @@ class PickupPointTimeDetailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pickup_point_time_detail_params
-      params[:pickup_point_time_detail]
+      #params[:pickup_point_time_detail]
+      params.require(:pickup_point_time_detail).permit(:route_id, :location_id, :pickup_route_start_time_id, :pickup_time)
     end
 end
