@@ -4,7 +4,10 @@ class PickupPointTimeDetailsController < ApplicationController
   # GET /pickup_point_time_details
   # GET /pickup_point_time_details.json
   def index
-    @pickup_point_time_details = PickupPointTimeDetail.all
+    # @pickup_point_time_details = PickupPointTimeDetail.all
+  # PickupPointTimeDetail.includes(:routes, :)
+    @pickup_point_time_details = PickupPointTimeDetail.includes(:route, :location, :pickup_route_start_time)
+
   end
 
   # GET /pickup_point_time_details/1
