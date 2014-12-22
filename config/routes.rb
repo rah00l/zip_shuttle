@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-
+  resources :routes
 
   resources :pickup_point_time_details do 
      # member { get :get_route_start_time }
@@ -30,12 +30,20 @@ Rails.application.routes.draw do
 
   # match 'get_location', to: 'pickup_point_time_details#get_location', via: [:get ]
 
-  root to: "pickup_point_time_details#new"
+  root to: "routes#index"
 
   resources :pickup_route_start_times
 
   resources :locations
 
+  resources :drop_route_start_times
+
+  resources :drop_point_time_details do 
+    collection do
+        get 'get_route_start_time'
+        get 'get_location'
+    end
+  end
   
     # match ":pickup_point_time_details/:get_route_start_time"
   # end

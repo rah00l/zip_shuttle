@@ -1,0 +1,33 @@
+rails new zip_shuttle
+
+* rails g model route name:string
+
+---> rails g scaffold_controller route
+
+* rails g model location route_id:integer name:string latitude:string longitude:string route_type:string industrial_stop:boolean
+
+
+---> rails g scaffold_controller location
+
+* rails g model pickup_route_start_time route_id:integer pickup_start_time:time
+
+
+---> rails g scaffold_controller pickup_route_start_time
+
+
+* rails g model drop_route_start_time route_id:integer drop_start_time:time
+
+---> rails g scaffold_controller drop_route_start_time
+
+
+* rails g model pickup_point_time_detail route_id:integer location_id:integer pickup_route_start_time_id:integer pickup_time:time
+
+
+---> rails g scaffold_controller pickup_point_time_detail
+
+
+* rails g model drop_point_time_detail route_id:integer location_id:integer pickup_route_start_time_id:integer drop_time:time
+
+
+---> rails g scaffold_controller drop_point_time_detail
+

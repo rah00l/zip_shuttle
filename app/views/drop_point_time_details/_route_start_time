@@ -1,0 +1,1 @@
+<%= collection_select "drop_point_time_detail",:drop_route_start_time_id, drop_route_start_times, :id, :drop_start_time, prompt: true %>

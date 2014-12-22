@@ -1,0 +1,48 @@
+<%= form_for(@drop_point_time_detail) do |f| %>
+<% if @drop_point_time_detail.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@drop_point_time_detail.errors.count, "error") %> prohibited this drop_point_time_detail from being saved:</h2>
+
+  <ul>
+    <% @drop_point_time_detail.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="field">
+  <%= f.label :route_name %><br />
+  <%= f.collection_select :route_id, Route.all, :id, :name, prompt: true %>
+</div>
+
+<br/>
+ <%#= @drop_point_time_detail %>
+<div class="field">
+   <%= f.label :route_start_time %>
+  <% drop_route_start_times =  @drop_route_start_times.present? ?  @drop_route_start_times : @drop_point_time_detail.try(:route).try(:drop_route_start_times) %>
+  <div id="route_start_time_container">
+    <%= render "route_start_time", drop_route_start_times: drop_route_start_times if drop_route_start_times.present?  %>
+  </div>
+</div>
+<br/>
+
+<div class="field">
+  <%= f.label :drop_point %>
+  <div id="location_container">
+    <% locations = @locations.present? ? @locations : @drop_point_time_detail.try(:route).try(:locations) %>
+      <%= render "location", locations: locations if locations.present?  %>
+  </div>
+</div>
+
+<div class="drop_time_field" >
+  <%= f.label :drop_time %><br />
+  <%= f.text_field :drop_time %>
+</div>
+
+<br/>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>

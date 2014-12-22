@@ -1,0 +1,27 @@
+<h1>Listing drop_point_time_details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @drop_point_time_details.each do |drop_point_time_detail| %>
+      <tr>
+      <td><%= drop_point_time_detail.try(:route).try(:name) %>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+        <td><%= drop_point_time_detail.try(:drop_route_start_time).try(:drop_start_time) %>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+        <td><%= drop_point_time_detail.try(:location).try(:name) %>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+        <td><%= drop_point_time_detail.try(:drop_time) %>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+        <td><%= link_to 'Show', drop_point_time_detail %></td>
+        <td><%= link_to 'Edit', edit_drop_point_time_detail_path(drop_point_time_detail) %></td>
+        <td><%= link_to 'Destroy', drop_point_time_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Drop point time detail', new_drop_point_time_detail_path %>

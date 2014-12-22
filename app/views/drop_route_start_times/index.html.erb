@@ -1,0 +1,25 @@
+<h1>Listing drop_route_start_times</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @drop_route_start_times.each do |drop_route_start_time| %>
+      <tr>
+        <td><%= drop_route_start_time.route.name %></td>
+        <td><%= drop_route_start_time.drop_start_time %></td>
+        <td><%= link_to 'Show', drop_route_start_time %></td>
+        <td><%= link_to 'Edit', edit_drop_route_start_time_path(drop_route_start_time) %></td>
+        <td><%= link_to 'Destroy', drop_route_start_time, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Drop route start time', new_drop_route_start_time_path %>

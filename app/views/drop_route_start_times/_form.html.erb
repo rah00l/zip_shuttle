@@ -1,0 +1,28 @@
+<%= form_for(@drop_route_start_time) do |f| %>
+  <% if @drop_route_start_time.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@drop_route_start_time.errors.count, "error") %> prohibited this drop_route_start_time from being saved:</h2>
+
+      <ul>
+      <% @drop_route_start_time.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :route_name %><br />
+    <%= f.collection_select :route_id, Route.all, :id, :name, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :drop_start_time %><br />
+    <%= f.text_field :drop_start_time %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

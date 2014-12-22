@@ -4,10 +4,7 @@ class PickupPointTimeDetailsController < ApplicationController
   # GET /pickup_point_time_details
   # GET /pickup_point_time_details.json
   def index
-    # @pickup_point_time_details = PickupPointTimeDetail.all
-  # PickupPointTimeDetail.includes(:routes, :)
     @pickup_point_time_details = PickupPointTimeDetail.includes(:route, :location, :pickup_route_start_time)
-
   end
 
   # GET /pickup_point_time_details/1
@@ -31,7 +28,7 @@ class PickupPointTimeDetailsController < ApplicationController
 
     respond_to do |format|
       if @pickup_point_time_detail.save
-        format.html { redirect_to @pickup_point_time_detail, notice: 'Pickup point time detail was successfully created.' }
+        format.html { redirect_to pickup_point_time_details_path, notice: 'Pickup point time detail was successfully created.' }
         format.json { render :show, status: :created, location: @pickup_point_time_detail }
       else
         format.html { render :new }
@@ -45,7 +42,7 @@ class PickupPointTimeDetailsController < ApplicationController
   def update
     respond_to do |format|
       if @pickup_point_time_detail.update(pickup_point_time_detail_params)
-        format.html { redirect_to @pickup_point_time_detail, notice: 'Pickup point time detail was successfully updated.' }
+        format.html { redirect_to pickup_point_time_details_path, notice: 'Pickup point time detail was successfully updated.' }
         format.json { render :show, status: :ok, location: @pickup_point_time_detail }
       else
         format.html { render :edit }

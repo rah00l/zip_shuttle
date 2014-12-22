@@ -4,7 +4,8 @@ class PickupRouteStartTimesController < ApplicationController
   # GET /pickup_route_start_times
   # GET /pickup_route_start_times.json
   def index
-    @pickup_route_start_times = PickupRouteStartTime.all
+    # @pickup_route_start_times = PickupRouteStartTime.all
+    @pickup_route_start_times = PickupRouteStartTime.includes(:route)
   end
 
   # GET /pickup_route_start_times/1
@@ -28,7 +29,7 @@ class PickupRouteStartTimesController < ApplicationController
 
     respond_to do |format|
       if @pickup_route_start_time.save
-        format.html { redirect_to @pickup_route_start_time, notice: 'Pickup route start time was successfully created.' }
+        format.html { redirect_to pickup_route_start_times_path, notice: 'Pickup route start time was successfully created.' }
         format.json { render :show, status: :created, location: @pickup_route_start_time }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class PickupRouteStartTimesController < ApplicationController
   def update
     respond_to do |format|
       if @pickup_route_start_time.update(pickup_route_start_time_params)
-        format.html { redirect_to @pickup_route_start_time, notice: 'Pickup route start time was successfully updated.' }
+        format.html { redirect_to pickup_route_start_times_path, notice: 'Pickup route start time was successfully updated.' }
         format.json { render :show, status: :ok, location: @pickup_route_start_time }
       else
         format.html { render :edit }

@@ -15,8 +15,6 @@ class Location < ActiveRecord::Base
 	end
 
 	def industrial_stop=(value)
-		# debugger
-		puts "..........."
 		 value.eql?("YES") ? write_attribute(:industrial_stop, true) : write_attribute(:industrial_stop, false)
 	end
 end
