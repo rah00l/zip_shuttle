@@ -4,7 +4,7 @@ source 'http://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -34,6 +34,16 @@ gem 'debugger', group: [:development, :test]
 # Install the Ruby Gems for Bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+
+
+group :development, :test do
+  gem 'sqlite3'
+  gem 'rspec-rails'#, '~> 2.14.1'
+  gem 'capybara'#, '~> 2.2.1'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'#, :git => "git://github.com/bmabey/database_cleaner.git"
+  gem 'selenium-webdriver'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
