@@ -43,6 +43,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'#, :git => "git://github.com/bmabey/database_cleaner.git"
   gem 'selenium-webdriver'
+  gem "faker", "~> 1.4.3"
 end
 
 # Use ActiveModel has_secure_password
