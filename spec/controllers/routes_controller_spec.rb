@@ -2,6 +2,34 @@ require 'rails_helper'
 
 RSpec.describe RoutesController, :type => :controller do
 
+  # describe "GET index" do
+  #   it "assigns @routes" do
+  #     route = Route.create
+  #     get :index
+  #     expect(assigns(:routes)).to eq([route])
+  #   end
+
+  #   it "renders the index template" do
+  #     get :index
+  #     expect(response).to render_template("index")
+  #   end
+  # end
+let(:routes_list) { 4.times.map { create(:route) } }
+
+  describe '#index' do
+    before(:each) { get :index }
+
+    it 'assigns all routes to @routes' do
+      # debugger
+      expect(assigns(:routes)).to match_array routes_list
+    end
+
+    it 'success' do
+      expect(response).to be_success
+    end
+  end
+
+
 	describe "GET #new" do
     it "renders new routes page" do
       get :new
@@ -17,35 +45,31 @@ RSpec.describe RoutesController, :type => :controller do
       # sign_in @route
     }
 
- #    context "with valid attributes" do
+    context "with valid attributes" do
 
- #      it "creates a route in the database" do
- #        # expect { post :create, :route => attributes_for(:route) }.to change(Route, :count).by(1)
- #        route = create(:route)
- #        post :create, route: attributes_for(:route)
- #        debugger
- #        expect(response).to change(Route, :count).by(1)
- #      end
+      it "creates a route in database" do
+        expect { post :create, :route => attributes_for(:route) }.to change(Route, :count).by(1)
+      end
 
- #      # it "and redirects to dashboard page" do
- #      #   post :create, :board => attributes_for(:board)
- #      #   expect(response).to redirect_to dashboard_path(@member.membername)
- #      # end
+      it "and redirects to route index page" do
+        post :create, :route => attributes_for(:route)
+        expect(response).to redirect_to route_path(assigns[:route])
+      end
 
- #    end
+    end
 
- #    # context "with invalid attributes" do
+    context "with invalid attributes" do
 
- #    #   it "does not create a board in the database" do
- #    #     expect { post :create, :board => attributes_for(:board, category: nil) }.not_to change(Board, :count)
- #    #   end
+      it "does not create a route in the database" do
+        expect { post :create, :route => attributes_for(:route, name: nil) }.not_to change(Route, :count)
+      end
 
- #    #   it "and re-renders new board page" do
- #    #     post :create, :board => attributes_for(:board, category: nil)
- #    #     expect(response).to render_template :new
- #    #   end
+      it "and re-renders new route page" do
+        post :create, :route => attributes_for(:route, name: nil)
+        expect(response).to render_template :new
+      end
 
- #    # end
+    end
 
 	end
 
@@ -89,77 +113,43 @@ RSpec.describe RoutesController, :type => :controller do
 
   end
 
-### ------------------------------- Theere is issue (ActiveModel::ForbiddenAttributesError:)with PATCH and POST methods ---------------#
-  # describe "PATCH #update:" do
 
-  #   let(:route) { FactoryGirl.create(:route) }
+  describe "PATCH #update:" do
 
-  #   # before(:each){
-  #   #   sign_in board.member
-  #   # }
+    let(:route) { FactoryGirl.create(:route) }
 
-  #   context "with valid attributes" do
+    # before(:each){
+    #   sign_in board.member
+    # }
 
-  #     it "updates the route in the database" do
-  #       patch :update, id: route, :route => attributes_for(:route)
-  #       expect(Route.find_by(name: route.name)).not_to be nil
-  #     end
+    context "with valid attributes" do
 
-  #     it "and redirects to dashboard page" do
-  #       patch :update, id: route, :board => attributes_for(:route)
-  #       expect(response).to redirect_to route_path(route)
-  #     end
+      it "updates the route in the database" do
+        patch :update, id: route, :route => attributes_for(:route, name: "Fashion")
+        expect(Route.find_by(name: route.name, name: "Fashion")).not_to be nil
+      end
 
-  #   end
+      it "and redirects to route show page" do
+        patch :update, id: route, :route => attributes_for(:route, name: "Fashion")
+        expect(response).to redirect_to route_path(route)
+      end
 
-  #   # context "with invalid attributes" do
+    end
 
-  #   #   it "does not update the board in the database" do
-  #   #     patch :update, id: board, :board => attributes_for(:board, category: nil)
-  #   #     expect(Board.find_by(name: board.name, category: nil)).to be nil
-  #   #   end
+    context "with invalid attributes" do
 
-  #   #   it "and re-renders edit board page" do
-  #   #     patch :update, id: board, :board => attributes_for(:board, category: nil)
-  #   #     expect(response).to render_template :edit
-  #   #   end
+      it "does not update the route in the database" do
+        patch :update, id: route, :route => attributes_for(:route, name: nil)
+        expect(Route.find_by(id: route.id, name: nil)).to be nil
+      end
 
-  #   # end
+      it "and re-renders edit board page" do
+        patch :update, id: route, :route => attributes_for(:route, name: nil)
+        expect(response).to render_template :edit
+      end
 
-  # end
+    end
 
-  #   context "with valid attributes" do
-
-  # #     it "creates a route in the database" do
-  # #     	debugger
-		# # expect{ post :create, route: FactoryGirl.attributes_for(:route) }.to change(Route,:count).by(1) 
-  # #      end
-
-  #     # it "and redirects to dashboard page" do
-  #     #   post :create, :board => attributes_for(:board)
-  #     #   expect(response).to redirect_to dashboard_path(@member.membername)
-  #     # end
-
-  #     # it "and redirects to routes index page" do
-  #     #   post :create, :route => attributes_for(:route)
-  #     #   # expect(response).to redirect_to routes_path
-  #     # end
-
-  #   end
-
-    # context "with invalid attributes" do
-
-    #   it "does not create a board in the database" do
-    #     expect { post :create, :board => attributes_for(:board, category: nil) }.not_to change(Board, :count)
-    #   end
-
-    #   it "and re-renders new board page" do
-    #     post :create, :board => attributes_for(:board, category: nil)
-    #     expect(response).to render_template :new
-    #   end
-
-    # end
-
-  # end
+  end
 
 end

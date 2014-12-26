@@ -9,6 +9,9 @@ class Location < ActiveRecord::Base
 
 	INDUSTRIAL_STOP = ["YES" , "NO" ]
 
+	validates :name, presence: true
+	validates :route_id, presence: true
+
 	def industrial_stop
 		# debugger
 		read_attribute(:industrial_stop).present? ? "YES" : "NO" unless read_attribute(:industrial_stop).nil?

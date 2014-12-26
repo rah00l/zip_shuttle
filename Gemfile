@@ -44,6 +44,8 @@ group :development, :test do
   gem 'database_cleaner'#, :git => "git://github.com/bmabey/database_cleaner.git"
   gem 'selenium-webdriver'
   gem "faker", "~> 1.4.3"
+  gem 'simplecov', :require => false
+  gem 'thin'  
 end
 
 # Use ActiveModel has_secure_password

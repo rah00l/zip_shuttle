@@ -5,4 +5,6 @@ class Route < ActiveRecord::Base
 
 	has_many :pickup_point_time_details,dependent: :destroy
 	has_many :drop_point_time_details,dependent: :destroy
+
+	validates :name, presence: true
 end
