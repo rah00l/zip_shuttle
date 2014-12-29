@@ -31,3 +31,12 @@ rails new zip_shuttle
 
 ---> rails g scaffold_controller drop_point_time_detail
 
+
+***********************************************************************
+Rspec Test Cases :
+
+
+rails g rspec:model pickup_route_start_time
+
+rails g rspec:controller pickup_route_start_time
+
