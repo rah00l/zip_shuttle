@@ -1,8 +1,34 @@
 * Need 2 check can sort on time field pickup_start_time field.
 
-* Need to add validation for every model ...
+* Need to add validation for every model ...(partialy added while writing test cases.)
 
 * PRST & DRST Edit form values are not populating for already created records. --(done) As previously it was time_filed so browser issue not data seen -- changed to text-field for time..being..
+
+* Vehicle / Driver / Conductor / . master yet to be design.
+
+		Vehicle ------> (m) Drivers (vehicle_id)
+
+		Vehicle ------> (m) Conductors (vehicle_id)
+
+* Company - 
+
+* Registered Group  
+
+* Rate - 
+
+* Discounts  (registered_group_id)  (m ) <----- Registered Group 
+
+* Refferal Offers (registered_group_id)  (m) <---- Registered Group
+
+* Gallery 
+
+* Contact us 
+
+* Card Replacement Cost
+
+* Promotion 
+
+* Users  (company_id) (m) <---- Company 
 
 
 
