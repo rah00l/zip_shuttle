@@ -31,6 +31,30 @@ rails new zip_shuttle
 
 ---> rails g scaffold_controller drop_point_time_detail
 
+***********************************************************************
+
+gem 'devise'
+gem 'cancan'
+gem 'rolify'
+
+    run bundle install to install all required gems
+
+    Run Devise generator
+        # rails generate devise:install
+
+    Create the User model from Devise
+        # rails generate devise User
+
+    Create the Ability class from CanCan
+        # rails generate cancan:ability
+
+    Create the Role class from rolify
+        # rails generate rolify Role User
+
+    Run migrations
+        # rake db:migrate
+
+
 
 ***********************************************************************
 Rspec Test Cases :
