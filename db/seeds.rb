@@ -7,6 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # 
+
+# For adding pre-dfined role in table of Role 
+# [:admin, :author, :contact, :user].each do |role|
+#   Role.find_or_create_by_name({ name: role }, without_protection: true)
+# end
+
+
 Route.destroy_all
 
 ["Aundh via Sanghvi Phata","Kothrud via Sus Road","Nigadi via Chinchwad Gaon","Pimple Gurav/Saudagar via Jagtap Diary"].each { |r| Route.create(name: r )}
