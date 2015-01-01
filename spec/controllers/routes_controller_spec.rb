@@ -2,25 +2,17 @@ require 'rails_helper'
 
 RSpec.describe RoutesController, :type => :controller do
 
-  # describe "GET index" do
-  #   it "assigns @routes" do
-  #     route = Route.create
-  #     get :index
-  #     expect(assigns(:routes)).to eq([route])
-  #   end
+  let(:routes_list) { 4.times.map { create(:route) } }
 
-  #   it "renders the index template" do
-  #     get :index
-  #     expect(response).to render_template("index")
-  #   end
-  # end
-let(:routes_list) { 4.times.map { create(:route) } }
+  before(:each){
+      @user = FactoryGirl.create(:user)
+      # sign_in @user
+    }
 
   describe '#index' do
     before(:each) { get :index }
 
     it 'assigns all routes to @routes' do
-      # debugger
       expect(assigns(:routes)).to match_array routes_list
     end
 
@@ -31,6 +23,12 @@ let(:routes_list) { 4.times.map { create(:route) } }
 
 
 	describe "GET #new" do
+
+    before(:each){
+      @user = FactoryGirl.create(:user)
+      sign_in @user
+    }
+
     it "renders new routes page" do
       get :new
       expect(assigns(:route)).to be_a_new(Route)
@@ -41,8 +39,8 @@ let(:routes_list) { 4.times.map { create(:route) } }
   describe "POST #create:" do
 
     before(:each){
-      @route = FactoryGirl.create(:route)
-      # sign_in @route
+      @user = FactoryGirl.create(:user)
+      sign_in @user
     }
 
     context "with valid attributes" do
@@ -75,6 +73,10 @@ let(:routes_list) { 4.times.map { create(:route) } }
 
 
 	describe "GET #show" do
+    before(:each){
+      @user = FactoryGirl.create(:user)
+      sign_in @user
+    }
 		it "renders show route page" do
 			route = create(:route)
       get :show, id: route
@@ -84,6 +86,10 @@ let(:routes_list) { 4.times.map { create(:route) } }
 	end
 
 	describe "GET #edit" do
+    before(:each){
+      @user = FactoryGirl.create(:user)
+      sign_in @user
+    }
     it "renders edit route page" do
       route = create(:route)
       get :edit, id: route
@@ -96,9 +102,10 @@ let(:routes_list) { 4.times.map { create(:route) } }
 
     let(:route) { FactoryGirl.create(:route) }
 
-    # before(:each){
-    #   sign_in board.member
-    # }
+    before(:each){
+      @user = FactoryGirl.create(:user)
+      sign_in @user
+    }
 
 
     it "deletes the route from the database" do
@@ -118,9 +125,10 @@ let(:routes_list) { 4.times.map { create(:route) } }
 
     let(:route) { FactoryGirl.create(:route) }
 
-    # before(:each){
-    #   sign_in board.member
-    # }
+    before(:each){
+      @user = FactoryGirl.create(:user)
+      sign_in @user
+    }
 
     context "with valid attributes" do
 
