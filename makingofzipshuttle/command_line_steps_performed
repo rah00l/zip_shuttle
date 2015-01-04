@@ -67,3 +67,5 @@ rails g rspec:controller pickup_route_start_times
 rails g rspec:model drop_route_start_time
 
 rails g rspec:controller drop_route_start_times
+
+rails g rspec:controller users
