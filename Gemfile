@@ -50,6 +50,8 @@ group :development, :test do
   gem "faker", "~> 1.4.3"
   gem 'simplecov', :require => false
   gem 'thin'  
+  gem 'guard'
+  gem 'guard-rspec'
 end
 
 # Use ActiveModel has_secure_password
@@ -64,3 +66,4 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'prawn_rails', require: false
