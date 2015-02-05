@@ -1,10 +1,10 @@
-# require 'rails_helper'
+require 'rails_helper'
 
-# describe "Launch Application" do
+describe "Launch Application" do
 
-#   before :each do
-#     visit root_path
-#   end
+  before :each do
+    visit root_path
+  end
 
 #   it "Display Home Page" do
 #     expect(page.status_code).to be 200
@@ -22,4 +22,4 @@
 #     	# expect(page).to has_head? ("meta[charset='UTF-8']")
 #   end
 
-# end
+end

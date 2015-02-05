@@ -76,5 +76,3 @@ guard :rspec, cmd: "bundle exec rspec" do
   end
 end
 
-And when I do the guard start command, those errors do not show:
-guard start

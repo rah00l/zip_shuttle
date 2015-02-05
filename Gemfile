@@ -50,8 +50,10 @@ group :development, :test do
   gem "faker", "~> 1.4.3"
   gem 'simplecov', :require => false
   gem 'thin'  
-  gem 'guard'
+  # gem 'guard'
   gem 'guard-rspec'
+  gem "terminal-notifier-guard"
+  gem 'libnotify'
 end
 
 # Use ActiveModel has_secure_password
