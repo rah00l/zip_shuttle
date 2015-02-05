@@ -16,7 +16,7 @@
 
 * Rate - 
 
-* Discounts  (registered_group_id)  (m ) <----- Registered Group 
+* Discounts  (registered_group_id)  (m ) <-----> Registered Group (Need to create many-many kind of association) [id,registered_group_id, discount_id]
 
 * Refferal Offers (registered_group_id)  (m) <---- Registered Group
 
