@@ -1,5 +1,17 @@
 require 'simplecov'
-SimpleCov.start
+require 'simplecov-json'
+# SimpleCov.start
+SimpleCov.start 'rails' do
+
+  SimpleCov.formatters = [SimpleCov::Formatter::HTMLFormatter,
+                          SimpleCov::Formatter::JSONFormatter ]
+
+  # add_group 'Controllers', 'app/controllers'
+  # add_group 'Models', 'app/models'
+  # add_group 'Helpers', 'app/helpers'
+  # add_group 'Mailers', 'app/mailers'
+  # add_group 'Views', 'app/views'
+end if ENV["COVERAGE"]
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'

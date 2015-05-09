@@ -49,6 +49,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem "faker", "~> 1.4.3"
   gem 'simplecov', :require => false
+  gem 'simplecov-json', :require => false
   gem 'thin'  
   # gem 'guard'
   gem 'guard-rspec'
